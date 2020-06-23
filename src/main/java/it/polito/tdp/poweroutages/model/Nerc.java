@@ -1,13 +1,82 @@
 package it.polito.tdp.poweroutages.model;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Nerc {
 	private int id;
 	private String value;
+	private boolean aiutando;
+	private List<NercMonth> aiutati;
+	private int bonus;
+	private Nerc aiutante;
 
 	public Nerc(int id, String value) {
 		this.id = id;
 		this.value = value;
+		aiutati=new ArrayList<>();
+		aiutando=false;
+		bonus=0;
+		aiutante=null;
 	}
+	
+	
+	
+
+	public Nerc getAiutante() {
+		return aiutante;
+	}
+
+
+
+
+	public void setAiutante(Nerc aiutante) {
+		this.aiutante = aiutante;
+	}
+
+
+
+
+	public int getBonus() {
+		return bonus;
+	}
+
+
+
+
+	public void setBonus(int bonus) {
+		this.bonus = bonus;
+	}
+
+
+
+
+	public boolean isAiutando() {
+		return aiutando;
+	}
+
+
+
+	public void setAiutando(boolean aiutando) {
+		this.aiutando = aiutando;
+	}
+
+
+
+	public List<NercMonth> getAiutati() {
+		return aiutati;
+	}
+
+	public void addAiutato(Nerc n, LocalDateTime data) {
+		aiutati.add(new NercMonth(n,data));
+		
+	}
+
+
+
+
+
 
 	public int getId() {
 		return id;
